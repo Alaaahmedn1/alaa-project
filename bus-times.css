@@ -1,0 +1,156 @@
+/* إعدادات أساسية */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  color: #333;
+}
+
+/* الهيدر */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1f3a;
+  color: white;
+  padding: 20px 30px;
+  flex-wrap: wrap;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.site-title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.site-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.site-nav ul li a:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* العنوان الرئيسي */
+h1 {
+  text-align: center;
+  color: #003366;
+  margin-top: 30px;
+}
+
+.hours {
+  text-align: center;
+  color: #556b82;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* الأقسام */
+.times-section {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 900px;
+  margin: 30px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.times-section h2 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 15px;
+}
+
+/* الجداول */
+.times-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.times-table th,
+.times-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.times-table th {
+  background-color: #2c315a;
+  color: white;
+}
+
+.times-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.times-table tr:hover {
+  background-color: #e6f0ff;
+}
+
+/* أزرار الحجز */
+.book-link-btn {
+  background-color: #ff7f50;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.book-link-btn:hover {
+  background-color: #ff6333;
+  transform: translateY(-2px);
+}
+
+/* الفوتر */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #1a1f3a;
+  color: white;
+  border-radius: 0 0 15px 15px;
+  margin-top: 30px;
+}
+
+/* استجابة الشاشة */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .site-nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .times-table th, .times-table td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

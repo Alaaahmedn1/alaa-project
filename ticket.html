@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تذاكر حافلات تعز</title>
+  <link rel="stylesheet" href="ticket.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <img src="لوقو2.jpg" alt="لوقو" class="logo" />
+    <div class="site-title">Taiz Bus</div>
+  </div>
+  <nav class="site-nav">
+    <ul>
+      <li><a href="register.html">التسجيل</a></li>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="bus-times.html">اوقات الحافلات</a></li>
+      <li><a href="schedule.html">جدول الرحلات</a></li>
+      <li><a href="map.html">مسارات</a></li>
+      <li><a href="ticket.html">التذاكر</a></li>
+      <li><a href="contact.html">التواصل</a></li>
+    </ul>
+  </nav>
+</header>
+
+<h1>فئات التذاكر المتاحة</h1>
+
+<ul class="intro-list">
+  <li>اختر التذكرة التي تناسبك!</li>
+  <li>علماً أن تنقل الأطفال تحت سن السادسة مجاني</li>
+</ul>
+
+<section id="buy">
+  <h2 style="text-align:center; color:#003366;">شراء التذكرة</h2>
+
+  <form class="ticket-form">
+    <!-- ===== بيانات المسار والرحلة ===== -->
+    <div class="form-fields">
+
+      <label for="route">المسار</label>
+      <select id="route" required>
+        <option value="">اختر المسار</option>
+        <option value="الحصب-القاضي">الحصب - القاضي</option>
+        <option value="الحوض-الروضة">الحوض - الروضة</option>
+        <option value="الثورة-الدحي">الثورة - الدحي</option>
+      </select>
+
+      <label for="date">تاريخ الرحلة</label>
+      <input type="date" id="date" required />
+
+      <label for="passengers">عدد الركاب</label>
+      <input type="number" id="passengers" min="1" max="10" value="1" required />
+
+      <label for="payment">طريقة الدفع</label>
+      <select id="payment" required>
+        <option value="">اختر طريقة الدفع</option>
+        <option value="cash">نقدًا</option>
+        <option value="card">بطاقة إلكترونية</option>
+      </select>
+
+    </div>
+
+    <!-- ===== شاشة ملخص الشراء (بجانب المسار) ===== -->
+    <aside class="summary-card">
+      <h3>ملخص الشراء</h3>
+      <p>المسار: <span id="sum-route">-</span></p>
+      <p>التاريخ: <span id="sum-date">-</span></p>
+      <p>الركاب: <span id="sum-passengers">1</span></p>
+      <a href="#" class="buy-btn">انتقل للدفع</a>
+    </aside>
+  </form>
+</section>
+
+<!-- ====================== جميع بطاقات التذاكر ====================== -->
+
+<!-- درجة أولى -->
+<div class="tickets-row">
+  <div class="ticket gold">
+    <h2>درجة أولى - ساعتين</h2>
+    <p>400 ريال يمني</p>
+    <button class="buy-ticket">احجز</button>
+  </div>
+  <div class="ticket gold">
+    <h2>درجة أولى - 3 أيام</h2>
+    <p>4,400 ريال يمني</p>
+    <button class="buy-ticket">احجز</button>
+  </div>
+  <div class="ticket gold">
+    <h2>درجة أولى - 7 أيام</h2>
+    <p>8,800 ريال يمني</p>
+    <button class="buy-ticket">احجز</button>
+  </div>
+</div>
+
+<!-- عادية -->
+<div class="tickets-row">
+  <div class="ticket regular">
+    <h2>عادية - ساعتين</h2>
+    <p>200 ريال يمني</p>
+    <button class="buy-ticket">احجز</button>
+  </div>
+  <div class="ticket regular">
+    <h2>عادية - 3 أيام</h2>
+    <p>2,200 ريال يمني</p>
+    <button class="buy-ticket">احجز</button>
+  </div>
+  <div class="ticket regular">
+    <h2>عادية - 7 أيام</h2>
+    <p>4,400 ريال يمني</p>
+    <button class="buy-ticket">احجز</button>
+  </div>
+</div>
+
+<!-- طلاب -->
+<div class="tickets-row">
+  <div class="ticket student">
+    <h2>طلاب - ساعتين</h2>
+    <p>100 ريال يمني</p>
+    <button class="buy-ticket">احجز</button>
+  </div>
+  <div class="ticket student">
+    <h2>طلاب - 3 أيام</h2>
+    <p>400 ريال يمني</p>
+    <button class="buy-ticket">احجز</button>
+  </div>
+  <div class="ticket student">
+    <h2>طلاب - 7 أيام</h2>
+    <p>1,100 ريال يمني</p>
+    <button class="buy-ticket">احجز</button>
+  </div>
+</div>
+
+<!-- ذوي الاحتياجات -->
+<div class="tickets-row">
+  <div class="ticket special">
+    <h2>ذوي الاحتياجات - ساعتين</h2>
+    <p>50 ريال يمني</p>
+    <button class="buy-ticket">احجز</button>
+  </div>
+  <div class="ticket special">
+    <h2>ذوي الاحتياجات - 3 أيام</h2>
+    <p>150 ريال يمني</p>
+    <button class="buy-ticket">احجز</button>
+  </div>
+  <div class="ticket special">
+    <h2>ذوي الاحتياجات - 7 أيام</h2>
+    <p>700 ريال يمني</p>
+    <button class="buy-ticket">احجز</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>© 2025 Taiz Bus</p>
+  <p>مدينة تعز – وادي القاضي</p>
+</footer>
+
+<!-- ====================== JavaScript ====================== -->
+<script>
+  // جلب عناصر إدخال المستخدم
+  const routeSelect = document.getElementById("route");       // المسار
+  const dateInput = document.getElementById("date");         // التاريخ
+  const passengersInput = document.getElementById("passengers"); // عدد الركاب
+
+  // جلب عناصر ملخص الشراء
+  const sumRoute = document.getElementById("sum-route");
+  const sumDate = document.getElementById("sum-date");
+  const sumPassengers = document.getElementById("sum-passengers");
+
+  // عند تغيير المسار
+  routeSelect.addEventListener("change", function () {
+    const selectedText = routeSelect.options[routeSelect.selectedIndex].text;
+    sumRoute.textContent = routeSelect.value ? selectedText : "-";
+  });
+
+  // عند تغيير التاريخ
+  dateInput.addEventListener("change", function () {
+    sumDate.textContent = dateInput.value ? dateInput.value : "-";
+  });
+
+  // عند تغيير عدد الركاب
+  passengersInput.addEventListener("input", function () {
+    sumPassengers.textContent = passengersInput.value;
+  });
+</script>
+
+</body>
+</html>

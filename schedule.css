@@ -1,0 +1,181 @@
+/* تنسيقات عامة */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* رأس الصفحة */
+.site-header {
+  background-color: #1a1f3a; /* كحلي مائل */
+  color: white;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.site-title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.site-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.site-nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* قسم الرحلات */
+.trips-section {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.section-title {
+  text-align: center;
+  color: #1a1f3a;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.trips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* بطاقة رحلة */
+.trip-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s;
+}
+
+.trip-card:hover {
+  transform: translateY(-5px);
+}
+
+.trip-header {
+  font-weight: bold;
+  color: #1a1f3a;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.trip-times div {
+  margin-bottom: 5px;
+}
+
+.trip-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.status {
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.status.available {
+  background-color: #28a745; /* أخضر متاح */
+}
+
+.status.student {
+  background-color: #007bff; /* أزرق خاص للطلاب */
+}
+
+.status.regular {
+  background-color: #6c757d; /* رمادي عادي */
+}
+
+.status.limited {
+  background-color: #ffc107; /* أصفر محدود */
+}
+
+.status.first-class {
+  background-color: #8b0000; /* أحمر درجة أولى */
+}
+
+.status.special-needs {
+  background-color: #ff69b4; /* زهري لذوي الاحتياجات */
+}
+.btn-book {
+  display: inline-block;       /* يسمح بتحديد حجم الزر */
+  background-color: #ff7f50;   /* برتقالي للحجز */
+  color: #fff;
+  font-weight: bold;
+  text-align: center;           /* نص في منتصف الزر */
+  text-decoration: none;        /* إزالة الخط تحت النص */
+  padding: 10px 30px;           /* مساحة عمودية وأفقية */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 16px;              /* حجم النص */
+}
+
+.btn-book:hover {
+  background-color: #ff6347;
+}
+
+
+/* تذييل الصفحة */
+.footer {
+  background-color: #1a1f3a;
+  color: white;
+  text-align: center;
+  padding: 25px 10px;
+  margin-top: 40px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.footer p {
+  margin: 5px 0;
+}

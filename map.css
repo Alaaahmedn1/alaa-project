@@ -1,0 +1,51 @@
+/* بوكس المحتوى المركزي */
+.main-box {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #fbfdff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.main-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.main-box h1 {
+  color: #003366;
+  margin-bottom: 15px;
+}
+
+.main-box p {
+  color: #556b82;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+/* زر فتح الخريطة باللون البرتقالي */
+.btn.primary {
+  padding: 12px 22px;
+  background-color: #ff7f00;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255,127,0,0.4);
+}
+
+/* تذييل الصفحة */
+footer {
+  background-color: #004080;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 0;
+}

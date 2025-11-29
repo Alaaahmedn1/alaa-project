@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="register.css">
+<title>تسجيل مستخدم</title>
+<style>
+/* ====================== إعدادات أساسية ====================== */
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+} */
+
+/* ====================== الهيدر ====================== */
+/* .site-header {
+  background-color: #1a1f3a;
+  color: white;
+  
+git init
+git add .
+git commit -m "أول رفع للمشروع"
+git branch -M main
+git remote add origin https://github.com/اسم_المستخدم/اسم_المستودع.git
+git push -u origin main
+
+  
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.site-title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.site-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.site-nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+} */
+
+/* ====================== HERO ====================== */
+/* .hero {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #2c315a;
+  color: white;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.hero h2 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 25px;
+} */
+
+/* ====================== نموذج التسجيل ====================== */
+/* .register-form {
+  max-width: 450px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.register-form input,
+.register-form select {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.register-form input:focus,
+.register-form select:focus {
+  outline: none;
+  border-color: #ff7f50;
+}
+
+.register-form .btn {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  background-color: #ff7f50;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-form .btn:hover {
+  background-color: #ff6333;
+} */
+
+/* ====================== Footer ====================== */
+/* .footer {
+  background-color: #1a1f3a;
+  color: white;
+  text-align: center;
+  padding: 25px 10px;
+  margin-top: 40px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.footer p {
+  margin: 5px 0;
+} */
+
+/* ====================== Responsive ====================== */
+/* @media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+} */
+</style>
+</head>
+<body>
+
+<!-- ====================== الهيدر ====================== -->
+<header class="site-header">
+  <div class="brand">
+    <img src="لوقو2.jpg" alt="لوجو" class="logo">
+    <div class="site-title">Taiz Bus</div>
+  </div>
+ <nav class="site-nav">
+      <ul>
+         <li><a href="register.html">التسجيل </a></li>
+        <li><a href="index.html">الرئيسية</a></li>
+         <li><a href="bus-times.html"> اوقات الحافلات </a></li>
+        <li><a href="schedule.html">جدول الرحلات</a></li>
+        <li><a href="map.html">مسارات</a></li>
+        <li><a href="ticket.html">التذاكر</a></li>
+        <li><a href="contact.html">التواصل</a></li>
+      </ul>
+  </nav>
+</header>
+
+<!-- ====================== صفحة التسجيل ====================== -->
+<section class="hero">
+  <h2>تسجيل مستخدم جديد</h2>
+  <p>املأ بياناتك للانضمام إلى منصة Taiz Bus</p>
+
+  <form class="register-form" action="#" method="post">
+    <input type="text" name="name" placeholder="الاسم الكامل" required>
+    <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+    <select name="gender" required>
+      <option value="">اختر الجنس</option>
+      <option value="male">ذكر</option>
+      <option value="female">أنثى</option>
+    </select>
+   <select name="gender" required>
+    <option value="">اختر الحي</option>
+      <option value="الدحي">الدحي</option>
+      <option value="الحصب">الحصب</option>
+      <option value="صبر">صبر</option>
+      <option value="الروضة">الروضة</option>      
+      <option value="المدينة القديمة">المدينة القديمة</option>
+      <option value="المسبح">المسبح</option>
+      <option value="الشعب">الشعب</option>
+      <option value="المسبح">المسبح</option>
+      <option value="الشيخ عثمان">الشيخ عثمان</option>
+      <option value="الجحمليه">الجحمليه</option>
+      <option value="بير باشا">بير باشا</option>
+      <option value="التحرير">التحرير</option>
+      <option value="المظفر">المظفر</option>
+      <option value="الضباب ">الضباب </option>
+      <option value="الثوره">الثورة</option>
+      <option value="الحوض">الحوض</option>
+      <option value="صينه">صينه</option>
+      <option value="شارع جمال">شارع جمال</option>
+      <option value="وادي القاضي">وادي القاضي</option>
+
+
+      
+    </select>
+    <!-- <input type="text" name="street" placeholder="العُكر" required> -->
+    <!-- <input type="email" name="secondary-email" placeholder="بريد إضافي (اختياري)"> -->
+    <button type="submit" class="btn">تسجيل</button>
+  </form>
+</section>
+
+<!-- ====================== Footer ====================== -->
+<footer class="footer">
+  <p>© 2025 Taiz Bus</p>
+  <p>تعز - وادي القاضي</p>
+</footer>
+
+</body>
+</html>

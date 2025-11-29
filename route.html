@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خريطة مسارات باصات تعز</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+<style>
+/* ====================== إعدادات أساسية ====================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ====================== الهيدر ====================== */
+.site-header {
+  background-color: #1a1f3a; /* كحلي مائل */
+  color: white;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.site-title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.site-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.site-nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ====================== Main Content ====================== */
+main {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.map-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #1a1f3a;
+  font-weight: bold;
+}
+
+.content-box {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .content-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+#map {
+  width: 100%;
+  height: 520px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ====================== Legend Panel ====================== */
+.legend-panel {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.legend-panel h3 {
+  margin-bottom: 15px;
+  color: #1a1f3a;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.legend-color {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  border-radius: 6px;
+}
+
+.legend-s1{background:#1E90FF;}
+.legend-s2{background:#FF4136;}
+.legend-s3{background:#FF851B;}
+.legend-s4{background:#FFDC00;}
+
+.legend-panel .btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.legend-panel .btn.buy {
+  background-color: #ff7f50;
+  color: white;
+}
+
+.legend-panel .btn.routes {
+  background-color: white;
+  color: #ff7f50;
+  border: 2px solid #ff7f50;
+}
+
+/* ====================== Footer ====================== */
+.footer {
+  background-color: #1a1f3a;
+  color: white;
+  text-align: center;
+  padding: 25px 10px;
+  margin-top: 40px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <img src="لوقو2.jpg" alt="لوقو" class="logo">
+    <div class="site-title">Taiz Bus</div>
+  </div>
+<nav class="site-nav">
+      <ul>
+         <li><a href="register.html">التسجيل </a></li>
+        <li><a href="index.html">الرئيسية</a></li>
+         <li><a href="bus-times.html"> اوقات الحافلات </a></li>
+        <li><a href="schedule.html">جدول الرحلات</a></li>
+        <li><a href="map.html">مسارات</a></li>
+        <li><a href="ticket.html">التذاكر</a></li>
+        <li><a href="contact.html">التواصل</a></li>
+      </ul>
+  </nav>
+</header>
+
+<main>
+<h2 class="map-title">خريطة مسارات باصات تعز</h2>
+
+<div class="content-box">
+  <div id="map"></div>
+  <aside class="legend-panel">
+    <h3>أسطورة المسارات</h3>
+    <div class="legend-item"><span class="legend-color legend-s1"></span> <strong>S1</strong> — الخط الأزرق</div>
+    <div class="legend-item"><span class="legend-color legend-s2"></span> <strong>S2</strong> — الخط الأحمر</div>
+    <div class="legend-item"><span class="legend-color legend-s3"></span> <strong>S3</strong> — الخط البرتقالي</div>
+    <div class="legend-item"><span class="legend-color legend-s4"></span> <strong>S4</strong> — الخط الأصفر</div>
+    <a href="ticket.html" class="btn buy">اشترِ تذكرة</a>
+    <a href="routes.html" class="btn routes">قائمة المسارات</a>
+  </aside>
+</div>
+</main>
+
+<footer class="footer">
+  <p>حقوق الطبع © 2025 Taiz Bus</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+// --- Map setup ---
+const center = [13.5790, 44.0209];
+const map = L.map('map',{center:center,zoom:13});
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19, attribution:'© OpenStreetMap contributors'}).addTo(map);
+
+// --- Routes ---
+const routes={
+    S1:{color:'#1E90FF',coords:[[13.5920,44.0080],[13.5880,44.0125],[13.5850,44.0180],[13.5830,44.0205],[13.5795,44.0235],[13.5770,44.0230],[13.5740,44.0220],[13.5720,44.0215],[13.5700,44.0190],[13.5685,44.0170]]},
+    S2:{color:'#FF4136',coords:[[13.5730,44.0055],[13.5720,44.0100],[13.5735,44.0125],[13.5755,44.0155],[13.5755,44.0165],[13.5775,44.0180],[13.5792,44.0200],[13.5798,44.0225],[13.5780,44.0235],[13.5780,44.0250],[13.5798,44.0280],[13.5820,44.0300],[13.5840,44.0270],[13.5830,44.0240]]},
+    S3:{color:'#FF851B',coords:[[13.5670,44.0300],[13.5680,44.0250],[13.5695,44.0235],[13.5720,44.0210],[13.5750,44.0205],[13.5770,44.0190],[13.5790,44.0180],[13.5820,44.0165],[13.5850,44.0150],[13.5835,44.0120],[13.5810,44.0110]]},
+    S4:{color:'#FFDC00',coords:[[13.5890,44.0140],[13.5785,44.0150],[13.5792,44.0170],[13.5795,44.0200],[13.5805,44.0220],[13.5815,44.0255],[13.5835,44.0280],[13.5855,44.0300],[13.5850,44.0180],[13.5840,44.0145]]}
+};
+
+// --- Add polylines ---
+const routeLayers={};
+Object.keys(routes).forEach(k=>{
+    const r=routes[k];
+    const poly=L.polyline(r.coords,{color:r.color,weight:6,opacity:0.95,lineCap:'round',lineJoin:'round'}).bindTooltip(k,{permanent:false});
+    routeLayers[k]=L.layerGroup([poly]);
+    routeLayers[k].addTo(map);
+});
+
+// --- Stations ---
+const stations=[
+    {name:'جمال - ',coords:[13.5905,44.0095],lines:['S1','S4']},
+    {name:'جمال - السوق',coords:[13.5890,44.0115],lines:['S1']},
+    {name:'وادي القاضي - محطة',coords:[13.5720,44.0215],lines:['S1','S2']},
+    {name:'صينة - المركز',coords:[13.5698,44.0188],lines:['S1','S3']},
+    {name:'المطار القديم - مدخل',coords:[13.5848,44.0148],lines:['S3','S4']},
+    {name:'المحطة المركزية',coords:[13.5792,44.0200],lines:['S1','S2','S4']}
+];
+
+const stationMarkers=L.layerGroup();
+stations.forEach(s=>{
+    const color=routes[s.lines[0]].color;
+    const marker=L.circleMarker(s.coords,{radius:9,color:'#fff',weight:2,fillColor:color,fillOpacity:0.95});
+    const popup=`<h4 style="margin:0 0 6px 0">${s.name}</h4><div>خطوط: ${s.lines.join(', ')}</div>`;
+    marker.bindPopup(popup,{minWidth:180});
+    stationMarkers.addLayer(marker);
+});
+stationMarkers.addTo(map);
+
+// --- Fit map ---
+(function fitAll(){
+    const allLatLngs=[];
+    Object.values(routes).forEach(r=>r.coords.forEach(c=>allLatLngs.push(L.latLng(c[0],c[1]))));
+    stations.forEach(s=>allLatLngs.push(L.latLng(s.coords[0],s.coords[1])));
+    if(allLatLngs.length) map.fitBounds(L.latLngBounds(allLatLngs).pad(0.15));
+})();
+</script>
+
+</body>
+</html>
